@@ -3,125 +3,82 @@ import { Text, StyleSheet, Dimensions, Image, View, TouchableOpacity, ScrollView
 
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
-import topo from '../../assets/topo.png';
-import logo from '../../assets/logo.png';
-import asado_tira from '../../assets/produtos/asado_tira.png'
-import denver_steak from '../../assets/produtos/denver_steak.png'
-import flat_iron from '../../assets/produtos/flat_iron.png'
-import prime_rib from '../../assets/produtos/prime_rib.png'
-import tomahawk from '../../assets/produtos/tomahawk.png'
+
+import capaCd from '../../assets/produtos/capa.png'
 
 const width = Dimensions.get('screen').width
 export default function Carrinho(){
-    return<ScrollView>
-        <Text style={estilos.tituloCarrinho}>Carrinho</Text>
-        <Text style={estilos.cestaCarnes}>
-            Resumo das Compras
-        </Text>
+    return<ScrollView style={estilos.fundo}>
+        <Text style={estilos.tituloReproduzindo}>Reproduzindo</Text>
 
-        <View style={estilos.blocoCarnes}>
-            <Image source={asado_tira} style={estilos.imagemCarnes}/>
-            <Text style={estilos.itens}>Asado de Tira</Text>
-            <Text style={estilos.valorIndividual}>148,98</Text>
-            <TouchableOpacity style={estilos.botaoAdicionar}>
-            <Text style={estilos.textoBotaoAdicionar} >
-                Remover
-            </Text>
-            </TouchableOpacity>
+        <View style={estilos.blocoCapa}>
+            <Image source={capaCd} style={estilos.imagemCapa}/>
         </View>
-        <View style={estilos.blocoCarnes}>
-            <Image source={tomahawk} style={estilos.imagemCarnes}/>
-            <Text style={estilos.itens}>Tomahawk</Text>
-            <Text style={estilos.valorIndividual}>189,90</Text>
-            <TouchableOpacity style={estilos.botaoAdicionar}>
-            <Text style={estilos.textoBotaoAdicionar} >
-                Remover
-            </Text>
-            </TouchableOpacity>
-        </View>
-        <Text style={estilos.tituloCarrinho}>Total</Text>
         
-        <TouchableOpacity style={estilos.botaoComprar}>
+        <Text style={estilos.tituloMusica}>Sinonimos</Text>
+        <Text style={estilos.tituloArtista}>Chitãozinho & Xororó part. Ana Castela</Text>
+        
+        <TouchableOpacity style={estilos.botaoPlay}>
             <Text style={estilos.textoBotao} >
                 Play
             </Text>
         </TouchableOpacity>
+
+
+        <Text style={estilos.reproduzindo}> Reproduzindo - Sinonimos </Text>
         
 
     </ScrollView>
 }
 
 const estilos = StyleSheet.create({
-    tituloCarrinho: {
+    tituloReproduzindo: {
         fontWeight:"bold",
         textAlign: "center",
-        fontSize: 18
+        fontSize: 18,
+        color: "#fefffc",
+        marginTop: 5
     },
-    cestaCarnes:{
-        color:"#464646",
-        fontSize:26,
-        lineHeight: 42,
-        fontWeight: "bold",
-        textAlign: "center",
-        color: "red",
+
+    tituloMusica: {
+        fontWeight:"bold",
+        textAlign: "left",
+        marginLeft: 20,
+        fontSize: 18,
+        color: "#fefffc",
+        marginTop: -10
     },
-    topo:{
-        width: "100%",
-        height: 578 / 768 * width
+
+    tituloArtista: {
+        fontWeight:"bold",
+        textAlign: "left",
+        marginLeft: 20,
+        fontSize: 18,
+        color: "#fefffc",
+        marginBottom: 25
     },
-    acougue:{
-        flexDirection:"row",
-        paddingVertical: 12
+    
+    
+    fundo:{
+        backgroundColor: "#4f4f4f"
     },
-    nomeAcougue:{
-        fontSize: 16,
-        lineHeight: 40,
-        marginLeft:12,
-        fontWeight: "bold",
-    },
-    imagemAcougue:{
-        width: 42,
-        height: 42
-    },
-    descricao:{
-        color:"#A3A3A3",
-        fontSize: 16,
-        lineHeight: 26,
-        paddingHorizontal: 12,
-    },
-    precoCesta:{
-        color: "#880000",
-        fontWeight: "bold",
-        fontSize: 32,
-        lineHeight: 42,
-        marginTop: 8,
-        paddingHorizontal: 12,
-    },
-    botaoComprar:{
+
+    botaoPlay:{
         margin:16,
         marginTop:16,
-        backgroundColor: "#B22222",
+        marginLeft: 38,
+        backgroundColor: "#008001",
         paddingVertical:16,
+        width: 300,
         borderRadius:6,
     },
 
-    botaoAdicionar:{
-        marginLeft:20,
-        justifyContent: "center",
-        alignSelf: "center",
-        height: 10,
-        width: 90,
-        backgroundColor: "#b22222",
-        paddingVertical:16,
-        borderRadius:6,
-        marginRight: 10
-    },
+    
     textoBotao:{
         textAlign: "center",
         color: "#FFFFFF",
         fontSize: 16,
         lineHeight: 26,
-        fontWeight: "bold",
     },
 
     textoBotaoAdicionar:{
@@ -132,35 +89,25 @@ const estilos = StyleSheet.create({
         lineHeight: 26,
         fontWeight: "bold",
     },
-    textoCesta:{
-        textAlign: "center",
-        fontSize: 16,
-        fontWeight: "bold",
+
+    
+    imagemCapa:{
+        width:350,
+        height:350,
+        marginLeft: 15
     },
-    itens:{
-        fontSize: 16,
-        lineHeight: 55,
-        marginLeft:12,
-        fontWeight:"bold",
-        textAlign:"center",
-    },
-    valorIndividual:{
-        fontSize: 16,
-        lineHeight: 55,
-        marginLeft:12,
-        fontWeight:"bold",
-        textAlign:"center",
-        color: "#880000"
-    },
-    imagemCarnes:{
-        width:60,
-        height:60,
-    },
-    blocoCarnes:{
+    blocoCapa:{
         flexDirection:"row",
         paddingVertical: 20,
         justifyContent: "space-between"
-        
+                
+    },
+
+    reproduzindo:{
+        textAlign: "center",
+        marginLeft: 20,
+        color: "#fefffc",
+        marginTop: 50
     }
     
 })
